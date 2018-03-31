@@ -34,7 +34,7 @@ Route::group(['middleware' => 'api'], function () {
 
     //Delete
     Route::delete('contact/{id}', function ($id) {
-        return Contact::findOrFail($id)->delete();
+        Contact::findOrFail($id)->delete();
     });
 });
 
