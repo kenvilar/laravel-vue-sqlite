@@ -23,8 +23,12 @@
         <ul class="list-group">
             <li class="list-group-item" v-for="contact in list">
                 <strong>{{ contact.name }}</strong> {{ contact.email }} {{ contact.phone }}
-                <button @click="deleteContact(contact.id)" type="button" class="btn btn-outline-danger btn-sm float-right">Delete</button>
-                <button @click="showSingleContact(contact.id)" type="button" class="btn btn-outline-secondary btn-sm float-right">Update</button>
+                <button @click="deleteContact(contact.id)" type="button"
+                        class="btn btn-outline-danger btn-sm float-right">Delete
+                </button>
+                <button @click="showSingleContact(contact.id)" type="button"
+                        class="btn btn-outline-secondary btn-sm float-right">Update
+                </button>
             </li>
         </ul>
     </div>
@@ -115,7 +119,7 @@
                 axios.delete(
                     'api/contact/' + id
                 ).then(function () {
-                    self.edit =  false;
+                    self.edit = false;
                     self.pullContactLists();
                 }).catch(function (error) {
                     console.log(error);

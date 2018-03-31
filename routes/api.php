@@ -5,7 +5,7 @@ use App\Contact;
 
 Route::group(['middleware' => 'api'], function () {
     //Pull all data with latest contacts
-    Route::get('contacts', function() {
+    Route::get('contacts', function () {
         return Contact::query()->latest()->get();
     });
 
@@ -13,7 +13,7 @@ Route::group(['middleware' => 'api'], function () {
     Route::get('contact/{id}', function ($id) {
         return Contact::query()->findOrFail($id);
     });
-    
+
     //Add contact
     Route::post('contacts/store', function (Request $request) {
         return Contact::create([
