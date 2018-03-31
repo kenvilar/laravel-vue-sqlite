@@ -109,6 +109,17 @@
                     self.contact.phone = response.data.phone;
                 });
                 self.edit = true;
+            },
+            deleteContact: function (id) {
+                let self = this;
+                axios.delete(
+                    'api/contact/' + id
+                ).then(function () {
+                    self.edit =  false;
+                    self.pullContactLists();
+                }).catch(function (error) {
+                    console.log(error);
+                });
             }
         }
     }
