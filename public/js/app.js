@@ -47310,13 +47310,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         updateContact: function updateContact(id) {
             console.log('Update Contact');
+            var self = this;
+            var params = Object.assign({}, self.contact);
+
+            axios.patch('api/contact/' + id, params).then(function () {
+                self.contact.name = '';
+                self.contact.email = '';
+                self.contact.phone = '';
+                self.edit = false;
+                self.pullContactLists();
+            }).catch(function (error) {
+                console.log(error);
+            });
+
+            return false;
         },
         createContact: function createContact() {
             console.log('Create Contact');
             var self = this;
             var params = Object.assign({}, self.contact);
 
-            axios.post('api/contacts/store', params).then(function (response) {
+            axios.post('api/contacts/store', params).then(function () {
                 self.contact.name = '';
                 self.contact.email = '';
                 self.contact.phone = '';
@@ -47334,7 +47348,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
                 self.contact.email = response.data.email;
                 self.contact.phone = response.data.phone;
             });
-            this.edit = true;
+            self.edit = true;
         }
     }
 });

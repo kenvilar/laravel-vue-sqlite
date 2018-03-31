@@ -62,22 +62,41 @@
             },
             updateContact: function (id) {
                 console.log('Update Contact');
+                let self = this;
+                let params = Object.assign({}, self.contact);
+
+                axios.patch(
+                    'api/contact/' + id,
+                    params
+                ).then(function () {
+                    self.contact.name = '';
+                    self.contact.email = '';
+                    self.contact.phone = '';
+                    self.edit = false;
+                    self.pullContactLists();
+                }).catch(function (error) {
+                    console.log(error);
+                });
+
+                return false;
             },
             createContact: function () {
                 console.log('Create Contact');
                 let self = this;
                 let params = Object.assign({}, self.contact);
 
-                axios.post('api/contacts/store', params)
-                    .then(function (response) {
-                        self.contact.name = '';
-                        self.contact.email = '';
-                        self.contact.phone = '';
-                        self.edit = false;
-                        self.pullContactLists();
-                    }).catch(function (error) {
-                        console.log(error);
-                    });
+                axios.post(
+                    'api/contacts/store',
+                    params
+                ).then(function () {
+                    self.contact.name = '';
+                    self.contact.email = '';
+                    self.contact.phone = '';
+                    self.edit = false;
+                    self.pullContactLists();
+                }).catch(function (error) {
+                    console.log(error);
+                });
             },
             showSingleContact: function (id) {
                 let self = this;
@@ -89,7 +108,7 @@
                     self.contact.email = response.data.email;
                     self.contact.phone = response.data.phone;
                 });
-                this.edit = true;
+                self.edit = true;
             }
         }
     }
