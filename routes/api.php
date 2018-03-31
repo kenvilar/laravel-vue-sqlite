@@ -31,6 +31,11 @@ Route::group(['middleware' => 'api'], function () {
             'phone' => $request->input('phone')
         ]);
     });
+
+    //Delete
+    Route::delete('contact/{id}', function ($id) {
+        return Contact::findOrFail($id)->delete();
+    });
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
