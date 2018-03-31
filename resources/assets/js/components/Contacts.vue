@@ -38,14 +38,39 @@
         },
         mounted: function () {
             console.log('Contacts Component Loaded!');
+            this.pullContactLists();
         },
         methods: {
+            pullContactLists: function () {
+                console.log('Pulling Contacts...');
+                axios.get(
+                    'api/contacts'
+                ).then((response) => {
+                    console.log(response.data);
+                    this.list = response.data;
+                }).catch((error) => {
+                    console.log(error);
+                });
+            },
             updateContact: function (id) {
                 console.log('Update Contact');
                 return;
             },
             createContact: function () {
                 console.log('Create Contact');
+                let self = this;
+                let params = Object.assign({}, self.contact);
+
+                axios.post('api/contacts/store', params)
+                    .then(function (response) {
+                        self.contact.name = '';
+                        self.contact.email = '';
+                        self.contact.phone = '';
+                        self.edit = false;
+                        self.pullContactLists();
+                    }).catch(function (error) {
+                        console.log(error);
+                    });
                 return;
             }
         }

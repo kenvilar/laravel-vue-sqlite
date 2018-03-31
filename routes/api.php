@@ -6,7 +6,7 @@ use App\Contact;
 Route::group(['middleware' => 'api'], function () {
     //Pull all data with latest contacts
     Route::get('contacts', function() {
-        return Contact::query()->latest()->orderBy('created_at', 'desc')->get();
+        return Contact::query()->latest()->get();
     });
 
     //Pull single contact
