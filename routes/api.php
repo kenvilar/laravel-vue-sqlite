@@ -13,6 +13,15 @@ Route::group(['middleware' => 'api'], function () {
     Route::get('contact/{id}', function ($id) {
         return Contact::query()->findOrFail($id);
     });
+    
+    //Add contact
+    Route::post('contacts/store', function (Request $request) {
+        return Contact::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'phone' => $request->input('phone')
+        ]);
+    });
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
