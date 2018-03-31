@@ -5,7 +5,7 @@
 <script>
     export default {
         data: function () {
-            //
+            return {};
         },
         mounted: function () {
             console.log('Contacts Components Loaded!');
