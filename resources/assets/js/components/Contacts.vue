@@ -4,18 +4,19 @@
         <form action="#" @submit.prevent="edit ? updateContact(contact.id) : createContact()">
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" name="name" class="form-control">
+                <input v-model="contact.name" type="text" id="name" name="name" class="form-control">
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" id="email" name="email" class="form-control">
+                <input v-model="contact.email" type="email" id="email" name="email" class="form-control">
             </div>
             <div class="form-group">
                 <label for="phone">Phone</label>
-                <input type="text" id="phone" name="phone" class="form-control">
+                <input v-model="contact.phone" type="text" id="phone" name="phone" class="form-control">
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-outline-primary">New Contact</button>
+                <button v-show="!edit" type="submit" class="btn btn-outline-primary">New Contact</button>
+                <button v-show="edit" type="submit" class="btn btn-outline-primary">Update Contact</button>
             </div>
         </form>
     </div>
@@ -24,10 +25,29 @@
 <script>
     export default {
         data: function () {
-            return {};
+            return {
+                edit: false,
+                list: [],
+                contact: {
+                    id: '',
+                    name: '',
+                    email: '',
+                    phone: ''
+                }
+            };
         },
         mounted: function () {
-            console.log('Contacts Components Loaded!');
+            console.log('Contacts Component Loaded!');
+        },
+        methods: {
+            updateContact: function (id) {
+                console.log('Update Contact');
+                return;
+            },
+            createContact: function () {
+                console.log('Create Contact');
+                return;
+            }
         }
     }
 </script>
