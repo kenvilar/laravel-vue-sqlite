@@ -13869,7 +13869,7 @@ __webpack_require__(13);
 
 window.Vue = __webpack_require__(36);
 
-Vue.component('contacts', __webpack_require__(48));
+Vue.component('contacts', __webpack_require__(51));
 
 var app = new Vue({
     el: '#app'
@@ -47206,15 +47206,18 @@ module.exports = function normalizeComponent (
 /* 45 */,
 /* 46 */,
 /* 47 */,
-/* 48 */
+/* 48 */,
+/* 49 */,
+/* 50 */,
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(40)
 /* script */
-var __vue_script__ = __webpack_require__(49)
+var __vue_script__ = __webpack_require__(52)
 /* template */
-var __vue_template__ = __webpack_require__(50)
+var __vue_template__ = __webpack_require__(53)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -47231,7 +47234,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/assets/js/components/Contact.vue"
+Component.options.__file = "resources/assets/js/components/Contacts.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -47240,9 +47243,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-43b63039", Component.options)
+    hotAPI.createRecord("data-v-36bb780a", Component.options)
   } else {
-    hotAPI.reload("data-v-43b63039", Component.options)
+    hotAPI.reload("data-v-36bb780a", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -47253,12 +47256,11 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 49 */
+/* 52 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
 //
 //
 //
@@ -47274,14 +47276,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 50 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("h1")
+  return _c("h1", [_vm._v("Contacts")])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -47289,7 +47291,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-43b63039", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-36bb780a", module.exports)
   }
 }
 
