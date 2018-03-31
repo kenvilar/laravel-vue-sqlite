@@ -47325,6 +47325,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).catch(function (error) {
                 console.log(error);
             });
+        },
+        showSingleContact: function showSingleContact(id) {
+            var self = this;
+            axios.get('api/contact/' + id).then(function (response) {
+                self.contact.id = response.data.id;
+                self.contact.name = response.data.name;
+                self.contact.email = response.data.email;
+                self.contact.phone = response.data.phone;
+            });
+            this.edit = true;
         }
     }
 });
@@ -47504,7 +47514,7 @@ var render = function() {
               attrs: { type: "button" },
               on: {
                 click: function($event) {
-                  _vm.updateContact(contact.id)
+                  _vm.showSingleContact(contact.id)
                 }
               }
             },

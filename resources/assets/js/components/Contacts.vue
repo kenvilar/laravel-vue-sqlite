@@ -24,7 +24,7 @@
             <li class="list-group-item" v-for="contact in list">
                 <strong>{{ contact.name }}</strong> {{ contact.email }} {{ contact.phone }}
                 <button @click="deleteContact(contact.id)" type="button" class="btn btn-outline-danger btn-sm float-right">Delete</button>
-                <button @click="updateContact(contact.id)" type="button" class="btn btn-outline-secondary btn-sm float-right">Update</button>
+                <button @click="showSingleContact(contact.id)" type="button" class="btn btn-outline-secondary btn-sm float-right">Update</button>
             </li>
         </ul>
     </div>
@@ -78,6 +78,18 @@
                     }).catch(function (error) {
                         console.log(error);
                     });
+            },
+            showSingleContact: function (id) {
+                let self = this;
+                axios.get(
+                    'api/contact/' + id
+                ).then(function (response) {
+                    self.contact.id = response.data.id;
+                    self.contact.name = response.data.name;
+                    self.contact.email = response.data.email;
+                    self.contact.phone = response.data.phone;
+                });
+                this.edit = true;
             }
         }
     }
