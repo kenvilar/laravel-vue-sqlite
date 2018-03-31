@@ -47270,6 +47270,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -47302,7 +47310,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         },
         updateContact: function updateContact(id) {
             console.log('Update Contact');
-            return;
         },
         createContact: function createContact() {
             console.log('Create Contact');
@@ -47318,7 +47325,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }).catch(function (error) {
                 console.log(error);
             });
-            return;
         }
     }
 });
@@ -47332,7 +47338,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("h1", [_vm._v("Contacts")]),
+    _c("h1", [_vm._v("Add Contacts")]),
     _vm._v(" "),
     _c(
       "form",
@@ -47460,6 +47466,52 @@ var render = function() {
           )
         ])
       ]
+    ),
+    _vm._v(" "),
+    _c("h1", [_vm._v("Contact List")]),
+    _vm._v(" "),
+    _c(
+      "ul",
+      { staticClass: "list-group" },
+      _vm._l(_vm.list, function(contact) {
+        return _c("li", { staticClass: "list-group-item" }, [
+          _c("strong", [_vm._v(_vm._s(contact.name))]),
+          _vm._v(
+            " " +
+              _vm._s(contact.email) +
+              " " +
+              _vm._s(contact.phone) +
+              "\n            "
+          ),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-outline-danger btn-sm float-right",
+              attrs: { type: "button" },
+              on: {
+                click: function($event) {
+                  _vm.deleteContact(contact.id)
+                }
+              }
+            },
+            [_vm._v("Delete")]
+          ),
+          _vm._v(" "),
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-outline-secondary btn-sm float-right",
+              attrs: { type: "button" },
+              on: {
+                click: function($event) {
+                  _vm.updateContact(contact.id)
+                }
+              }
+            },
+            [_vm._v("Update")]
+          )
+        ])
+      })
     )
   ])
 }

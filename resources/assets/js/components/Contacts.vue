@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>Contacts</h1>
+        <h1>Add Contacts</h1>
         <form action="#" @submit.prevent="edit ? updateContact(contact.id) : createContact()">
             <div class="form-group">
                 <label for="name">Name</label>
@@ -19,6 +19,14 @@
                 <button v-show="edit" type="submit" class="btn btn-outline-primary">Update Contact</button>
             </div>
         </form>
+        <h1>Contact List</h1>
+        <ul class="list-group">
+            <li class="list-group-item" v-for="contact in list">
+                <strong>{{ contact.name }}</strong> {{ contact.email }} {{ contact.phone }}
+                <button @click="deleteContact(contact.id)" type="button" class="btn btn-outline-danger btn-sm float-right">Delete</button>
+                <button @click="updateContact(contact.id)" type="button" class="btn btn-outline-secondary btn-sm float-right">Update</button>
+            </li>
+        </ul>
     </div>
 </template>
 
@@ -54,7 +62,6 @@
             },
             updateContact: function (id) {
                 console.log('Update Contact');
-                return;
             },
             createContact: function () {
                 console.log('Create Contact');
@@ -71,7 +78,6 @@
                     }).catch(function (error) {
                         console.log(error);
                     });
-                return;
             }
         }
     }
