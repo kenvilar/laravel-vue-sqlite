@@ -9,3 +9,4 @@ DB_DATABASE=homestead
 DB_USERNAME=homestead
 DB_PASSWORD=secret
 ```
+> * Add the `database.sqlite` file inside `database` folder
